@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import styles from '../styles/page.module.scss'
 
 export default function Home() {
@@ -14,9 +15,9 @@ export default function Home() {
          <label htmlFor="name">Email</label>
           <input type="email" name="email" id="email" />
          </div>
-         <button className={styles.btn}>
-          Enviar
-         </button>
+         <Link href='/dashboard' className={styles.btn}>
+          Entrar         
+         </Link>
         </form>
       </div>
     </div>
