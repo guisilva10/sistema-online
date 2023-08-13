@@ -1,8 +1,7 @@
 "use client"
 
 import Head from "next/head";
-import styles from "../../styles/page.module.scss"
-import Link from "next/link";
+import styles from "../../styles/Login.module.scss"
 
 import { collection, db, getDoc, doc } from "../../store/firebase";
 import { GetServerSidePropsContext } from "next";
@@ -73,7 +72,7 @@ export default function Login() {
       <div className={styles.Container}>
         <div className={styles.LoginContainer}>
           <div className={styles.Login}>
-            <p className={styles.title}>Login</p>
+            <p className={styles.title}>Olá, Admin!</p>
             <p className={styles.subtitle}>Informe seu acesso para entrar</p>
 
             <p className={styles.label}>Email</p>
@@ -106,12 +105,7 @@ export default function Login() {
 
             <div className={styles.linha}></div>
 
-            <div className={styles.sign}>
-              <p className={styles.signNew}>Ainda não tem uma conta? </p>
-              <a className={styles.create} href="">
-                Criar
-              </a>
-            </div>
+            
           </div>
         </div>
       </div>
