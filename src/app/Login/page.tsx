@@ -8,6 +8,7 @@ import { GetServerSidePropsContext } from "next";
 import { getDocs } from "firebase/firestore";
 import { FormEvent, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Loading from "@/components/Loading/Index.component";
 
 interface Login {
   id: string;
@@ -21,6 +22,7 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [teste, setTeste] = useState<Login[]>([]);
+  const [isLoading, setIsLoading] = useState(false)
 
   const router = useRouter();
 
@@ -46,6 +48,7 @@ export default function Login() {
   const [userId, setUserId] = useState("");
 
   const handleLogin = (e: FormEvent) => {
+    setIsLoading(true)
     e.preventDefault();
 
     const user = teste.find(
@@ -58,16 +61,20 @@ export default function Login() {
       router.push("/Home");
     } else {
       setError("Email ou senha incorretos");
+      setIsLoading(false)
     }
   };
 
   return (
     <>
+
       <Head>
         <style>{`
           @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
         `}</style>
       </Head>
+
+      {isLoading && <Loading />}
 
       <div className={styles.Container}>
         <div className={styles.LoginContainer}>
@@ -102,10 +109,6 @@ export default function Login() {
             <button className={styles.button} onClick={handleLogin}>
               Entrar
             </button>
-
-            <div className={styles.linha}></div>
-
-            
           </div>
         </div>
       </div>
