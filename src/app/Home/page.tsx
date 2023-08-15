@@ -1,19 +1,20 @@
-"use client"
+
 
 import Navbar from "@/components/Navbar"
+import SideBar from "@/components/SideBar";
+import styles from '../../styles/Home.module.scss'
 
 const HomePage = () => {
   const links = [
-    { label: 'Home', href: '/Home' },
-    { label: 'About', href: '/about' },
-    { label: 'Services', href: '/services' },
-    { label: 'Contact', href: '/contact' },
+    { label: 'Dashboard', href: '/dashboard' },
+
   ];
 
   return (
     <div>
       <Navbar links={links} /> {/* Use o componente Navbar aqui */}
-      <h1>Olá Admin, Seja Bem Vindo!</h1>
+      <h1 className={styles.title}>Seja Bem Vindo!</h1>
+      <SideBar/> 
     </div>
   )
 }

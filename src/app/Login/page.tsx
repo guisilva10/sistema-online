@@ -99,11 +99,6 @@ export default function Login() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-
-            <a className={styles.forget} href="">
-              Esqueci minha senha
-            </a>
-
             {error && <p className={styles.erro}>{error}</p>}
 
             <button className={styles.button} onClick={handleLogin}>
